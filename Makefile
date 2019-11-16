@@ -2,9 +2,10 @@
 
 CC=gcc # use gcc compiler
 TARGET=main
+FLAGS=-Wall -Werror
 
 all:	main.o node.o
-	$(CC) main.c node.c -o $(TARGET)
+	$(CC) $(FLAGS) main.c node.c -o $(TARGET)
 
 clean:
 	rm *.o $(TARGET)
