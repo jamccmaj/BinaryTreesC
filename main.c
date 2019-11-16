@@ -11,24 +11,23 @@ int main(int argc, char** argv) {
 	}
 
 	node* tree = insert(NULL, atoi(argv[1]));
-	printf("init tree = %d\n", get_data(tree));
 
 	for (int i=2; i < argc; i++) {
 		int data = atoi(argv[i]);
-		tree = insert(tree, data);
-		printf("%d %d %d\n", i, data, get_data(tree));
+		// don't need to save the tree pointer again
+		insert(tree, data);
 	}
 
-	int test = lookup(tree, atoi(argv[2]));
-	printf("%d %d\n", test, atoi(argv[2]));
-	// free(tree);
+	for (int j=1; j < argc; j++) {
+		printf(
+			"Arg %d = %s in tree? %d\n",
+			j, argv[j], lookup(tree, atoi(argv[j]))
+		);
+	}
 
 	int num_nodes = count_nodes(tree);
-	printf("%d\n", num_nodes);
+	printf("Number of nodes = %d\n", num_nodes);
 	free_nodes(tree);
-
-	node* test_tree = NULL;
-	printf("%d\n", count_nodes(test_tree));
 
 	return 0;
 }

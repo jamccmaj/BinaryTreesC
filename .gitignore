@@ -12,3 +12,4 @@
 
 # unignore specific
 !Make*
+.python-version

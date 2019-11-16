@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 
 typedef struct Node {
@@ -68,10 +69,7 @@ int is_leaf(node* n) {
 
 void print_nodes(node* tree) {
 	if (tree == NULL) {
-		return;
-	} else {
-		// continue from here
-		return;
+		printf("%s\n", "Tree is empty.");
 	}
 }
 
