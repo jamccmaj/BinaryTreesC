@@ -1,10 +1,18 @@
 #include <stdlib.h>
 
-typedef struct node {
+typedef struct Node {
 	int data;
-	struct node * left;
-	struct node * right;
+	struct Node * left;
+	struct Node * right;
 } node ;
+
+int get_data(node* n) {
+	return n->data;
+}
+
+void assign_data(node* n, int data) {
+	n->data = data;
+}
 
 int lookup(node* n, int target) {
 	if (n == NULL) {
@@ -36,9 +44,35 @@ node* insert(node* n, int data) {
 		return new_node(data);
 	} else {
 		if (data <= n->data) {
-			return insert(n->left, data);
+			n->left = insert(n->left, data);
 		} else {
-			return insert(n->right, data);
+			n->right = insert(n->right, data);
+		}
+	}
+	return n;
+}
+
+int is_leaf(node* n) {
+	return n->left == NULL && n->right == NULL;
+}
+
+void print_nodes(node* tree) {
+	if (tree == NULL) {
+		return;
+	} else {
+		// continue from here
+		return;
+	}
+}
+
+int count_nodes(node* n) {
+	if (n->left != NULL) {
+		return count_nodes(n->left) + 1;
+	} else {
+		if (n->right != NULL) {
+			return count_nodes(n->right) + 1;
+		} else {
+			return 1;
 		}
 	}
 }

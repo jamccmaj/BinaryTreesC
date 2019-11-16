@@ -2,6 +2,8 @@
 #include <stdlib.h>
 
 #include "node.h"
+// #include "node.c"
+
 
 int main(int argc, char** argv) {
 
@@ -10,10 +12,13 @@ int main(int argc, char** argv) {
 		return 1;
 	}
 
-	struct node* tree = insert(NULL, atoi(argv[1]));
+	node* tree = insert(NULL, atoi(argv[1]));
+	printf("init tree = %d\n", get_data(tree));
 
 	for (int i=2; i < argc; i++) {
-		insert(tree, atoi(argv[i]));
+		int data = atoi(argv[i]);
+		tree = insert(tree, data);
+		printf("%d %d %d\n", i, data, get_data(tree));
 	}
 
 	int test = lookup(tree, atoi(argv[2]));
