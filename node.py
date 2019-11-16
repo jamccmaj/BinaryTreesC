@@ -53,6 +53,23 @@ for val in sys.argv[1:]:
     print(lookup(tree, int(val)))
 
 
+def print_nodes_with_order(node, order="pre"):
+    if order == "pre":
+        print(node.id, node.data)
+
+    if node.left:
+        print_nodes_with_order(node.left, order)
+
+    if order == "in":
+        print(node.id, node.data)
+
+    if node.right:
+        print_nodes_with_order(node.right, order)
+
+    if order == "post":
+        print(node.id, node.data)
+
+
 def print_postorder(root_node):
 
     if root_node.left:
@@ -93,8 +110,8 @@ def print_preorder(root_node):
 
 
 print("preoder")
-print_preorder(tree)
+print_nodes_with_order(tree, order="pre")
 print("inorder")
-print_inorder(tree)
+print_nodes_with_order(tree, order="in")
 print("postoder")
-print_postorder(tree)
+print_nodes_with_order(tree, order="post")

@@ -67,9 +67,25 @@ int is_leaf(node* n) {
 	return n->left == NULL && n->right == NULL;
 }
 
-void print_nodes(node* tree) {
-	if (tree == NULL) {
-		printf("%s\n", "Tree is empty.");
+void print_nodes_with_order(node* n, int order) {
+	if (order == 0) {
+		printf("%d\n", n->data);
+	}
+
+	if (n->left != NULL) {
+		print_nodes_with_order(n->left, order);
+	}
+
+	if (order == 1) {
+		printf("%d\n", n->data);
+	}
+
+	if (n->right != NULL) {
+		print_nodes_with_order(n->right, order);
+	}
+
+	if (order == 2) {
+		printf("%d\n", n->data);
 	}
 }
 

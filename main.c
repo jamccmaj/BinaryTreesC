@@ -27,6 +27,13 @@ int main(int argc, char** argv) {
 
 	int num_nodes = count_nodes(tree);
 	printf("Number of nodes = %d\n", num_nodes);
+	printf("preorder\n");
+	print_nodes_with_order(tree, 0);
+	printf("inorder\n");
+	print_nodes_with_order(tree, 1);
+	printf("postorder\n");
+	print_nodes_with_order(tree, 2);
+
 	free_nodes(tree);
 
 	return 0;
