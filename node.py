@@ -4,10 +4,14 @@ import sys
 
 
 class Node(object):
+    instance_count = 0
+
     def __init__(self, data, left=None, right=None):
+        Node.instance_count += 1
         self.data = data
         self.left = left
         self.right = right
+        self.id = Node.instance_count
 
 
 def insert_node(node, data):
@@ -37,11 +41,60 @@ def lookup(node, target):
             return lookup(node.right, target)
 
 
+if len(sys.argv) < 2:
+    sys.exit(1)
+
 tree = Node(int(sys.argv[1]))
 
 for val in sys.argv[2:]:
-    # tree = insert_node(tree, int(val))
     insert_node(tree, int(val))
 
 for val in sys.argv[1:]:
     print(lookup(tree, int(val)))
+
+
+def print_postorder(root_node):
+
+    if root_node.left:
+        print_postorder(root_node.left)
+
+    if root_node.right:
+        print_postorder(root_node.right)
+
+    print(root_node.id, root_node.data)
+
+    return
+
+
+def print_inorder(root_node):
+
+    if root_node.left:
+        print_inorder(root_node.left)
+
+    print(root_node.id, root_node.data)
+
+    if root_node.right:
+        print_inorder(root_node.right)
+
+    return
+
+
+def print_preorder(root_node):
+
+    print(root_node.id, root_node.data)
+
+    if root_node.left:
+        print_preorder(root_node.left)
+
+    if root_node.right:
+        print_preorder(root_node.right)
+
+    return
+
+
+print("preoder")
+print_preorder(tree)
+print("inorder")
+print_inorder(tree)
+print("postoder")
+print_postorder(tree)
