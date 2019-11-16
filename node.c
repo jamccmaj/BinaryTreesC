@@ -76,13 +76,21 @@ void print_nodes(node* tree) {
 }
 
 int count_nodes(node* n) {
-	if (n->left != NULL) {
-		return count_nodes(n->left) + 1;
-	} else {
-		if (n->right != NULL) {
-			return count_nodes(n->right) + 1;
-		} else {
-			return 1;
-		}
+	if (n == NULL) {
+		return 0;
 	}
+	
+	int count = 1;
+
+	if (n->left != NULL) {
+		count += count_nodes(n->left);
+	}
+	if (n->right != NULL) {
+		count += count_nodes(n->right);
+	}
+	if (n == NULL) {
+		return 0;
+	}
+
+	return count;
 }

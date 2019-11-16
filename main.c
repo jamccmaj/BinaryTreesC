@@ -22,7 +22,13 @@ int main(int argc, char** argv) {
 	int test = lookup(tree, atoi(argv[2]));
 	printf("%d %d\n", test, atoi(argv[2]));
 	// free(tree);
+
+	int num_nodes = count_nodes(tree);
+	printf("%d\n", num_nodes);
 	free_nodes(tree);
+
+	node* test_tree = NULL;
+	printf("%d\n", count_nodes(test_tree));
 
 	return 0;
 }
