@@ -52,6 +52,16 @@ node* insert(node* n, int data) {
 	return n;
 }
 
+void free_nodes(node* n) {
+	if (n == NULL) {
+		return;
+	}
+
+	free_nodes(n->left);
+	free_nodes(n->right);
+	free(n);
+}
+
 int is_leaf(node* n) {
 	return n->left == NULL && n->right == NULL;
 }

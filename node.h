@@ -10,5 +10,6 @@ void print_nodes(node* tree);
 int count_nodes(node* n);
 void assign_data(node* n, int data);
 int get_data(node* n);
+void free_nodes(node* n);
 
 #endif // NODE_H

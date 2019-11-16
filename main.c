@@ -2,8 +2,6 @@
 #include <stdlib.h>
 
 #include "node.h"
-// #include "node.c"
-
 
 int main(int argc, char** argv) {
 
@@ -23,6 +21,8 @@ int main(int argc, char** argv) {
 
 	int test = lookup(tree, atoi(argv[2]));
 	printf("%d %d\n", test, atoi(argv[2]));
+	// free(tree);
+	free_nodes(tree);
 
 	return 0;
 }
