@@ -68,6 +68,8 @@ int is_leaf(node* n) {
 }
 
 void print_nodes_with_order(node* n, int order) {
+	// preorder = 0, inorder = 1, postorder = 2
+	// otherwise it won't print :P
 	if (order == 0) {
 		printf("%d\n", n->data);
 	}

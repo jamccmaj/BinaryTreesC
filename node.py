@@ -70,45 +70,6 @@ def print_nodes_with_order(node, order="pre"):
         print(node.id, node.data)
 
 
-def print_postorder(root_node):
-
-    if root_node.left:
-        print_postorder(root_node.left)
-
-    if root_node.right:
-        print_postorder(root_node.right)
-
-    print(root_node.id, root_node.data)
-
-    return
-
-
-def print_inorder(root_node):
-
-    if root_node.left:
-        print_inorder(root_node.left)
-
-    print(root_node.id, root_node.data)
-
-    if root_node.right:
-        print_inorder(root_node.right)
-
-    return
-
-
-def print_preorder(root_node):
-
-    print(root_node.id, root_node.data)
-
-    if root_node.left:
-        print_preorder(root_node.left)
-
-    if root_node.right:
-        print_preorder(root_node.right)
-
-    return
-
-
 print("preoder")
 print_nodes_with_order(tree, order="pre")
 print("inorder")
